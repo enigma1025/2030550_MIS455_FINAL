@@ -30,4 +30,14 @@ function api () {
         container.appendChild(newDiv);
     }
 
-    if
+    if (data.meals.length > 5) {
+        var showMoreBtn = document.createElement("button");
+        showMoreBtn.classList.add("show-more-btn", "mt-3");
+        showMoreBtn.textContent = "Show More";
+        showMoreBtn.onclick = function() {
+            displayAllMeals(data);
+            container.removeChild(showMoreBtn); // Remove the button after showing all meals
+        };
+        container.appendChild(showMoreBtn);
+    }
+}
